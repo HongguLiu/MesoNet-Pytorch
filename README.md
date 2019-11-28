@@ -1,4 +1,4 @@
-# MesoNet.Pytorch
+# MesoNet-Pytorch
 -------------------------------------------
 The is a personal Reimplemention of MesoNet[1] using Pytorch. If you make use of this work, please cite the paper accordingly. 
 
