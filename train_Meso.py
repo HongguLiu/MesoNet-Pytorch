@@ -35,7 +35,7 @@ def main():
 
 
 	#Creat the model
-	model = MesoInception4()
+	model = Meso4()
 	if continue_train:
 		model.load_state_dict(torch.load(model_path))
 	model = model.cuda()
@@ -98,13 +98,13 @@ def main():
 				best_model_wts = model.state_dict()
 		scheduler.step()
 		if not (epoch % 10):
+		#Save the model trained with multiple gpu
 		#torch.save(model.module.state_dict(), os.path.join(output_path, str(epoch) + '_' + model_name))
 			torch.save(model.state_dict(), os.path.join(output_path, str(epoch) + '_' + model_name))
 	print('Best val Acc: {:.4f}'.format(best_acc))
 	model.load_state_dict(best_model_wts)
 	#torch.save(model.module.state_dict(), os.path.join(output_path, "best.pkl"))
 	torch.save(model.state_dict(), os.path.join(output_path, "best.pkl"))
-
 
 
 
